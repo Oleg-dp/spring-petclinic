@@ -5,8 +5,7 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh './mvnw package'
-                sh 'java -jar target/*.jar'
-                
+                sh 'java -jar target/*.jar'                
             }
         }
     }
