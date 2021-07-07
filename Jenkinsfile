@@ -19,5 +19,16 @@ pipeline {
                 }
             }
         }
+        stage('Push Docker Image') {
+
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'jenkins-dockerhub-olegdp') {
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+                    }
+                }
+            }
+        }
     }
 }
