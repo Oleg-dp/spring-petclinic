@@ -10,9 +10,6 @@ pipeline {
         }
     
         stage('Build Docker Image') {
-            when {
-                branch 'main'
-            }
             steps {
                 script {
                     app = docker.build("Oleg-dp/my-test-petclinic")
