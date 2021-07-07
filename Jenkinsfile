@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Deploy docker container to Prod') {
             steps {
-                sh 'ansible-playbook /var/lib/jenkins/.ansible/docker-petclinic.yml'
+                sh 'ansible-playbook /var/lib/jenkins/.ansible/docker-petclinic.yml -i /var/lib/jenkins/.ansible/hosts'
             }
         }
     }
