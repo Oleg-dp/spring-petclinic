@@ -13,9 +13,9 @@ pipeline {
             steps {
                 script {
                     app = docker.build("olegdp/my-test-petclinic")
-                    app.inside {
-                        sh 'echo $(curl localhost:8081)'
-                    }
+//                    app.inside {
+//                        sh 'echo $(curl localhost:8081)'
+//                    }
                 }
             }
         }
