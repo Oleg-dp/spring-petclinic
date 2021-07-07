@@ -20,7 +20,6 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
-
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'jenkins-dockerhub-olegdp') {
@@ -28,6 +27,11 @@ pipeline {
                         app.push("latest")
                     }
                 }
+            }
+        }
+        stage('Deploy docker container to Prod') {
+            steps {
+                sh 'ansible-playbook /var/lib/jenkins/.ansible/docker-petclinic.yml'
             }
         }
     }
