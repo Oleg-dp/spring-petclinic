@@ -8,7 +8,7 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar'
             }
         }
-    
+//   
         stage('Build Docker Image') {
             steps {
                 script {
